@@ -8,4 +8,5 @@ import org.springframework.data.repository.query.Param;
 public interface AnimalRepository extends JpaRepository<Animal, Long> {
     @Query(value="SELECT * FROM animal a WHERE a.id = :id",nativeQuery = true)
     public Animal buscaAnimalId(@Param("id") Long id);
+
 }
