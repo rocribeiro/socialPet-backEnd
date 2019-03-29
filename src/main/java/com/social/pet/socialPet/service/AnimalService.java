@@ -12,16 +12,16 @@ import java.util.List;
 public class AnimalService {
     @Autowired
     private AnimalRepository ar;
-    private void addDono(Animal animal){
+    public void addAnimal(Animal animal){
         ar.saveAndFlush(animal);
     }
-    private void deleteDono(Animal animal){
+    public void deleteAnimal(Animal animal){
         ar.delete(animal);
     }
-    private Animal buscaAnimalId(Long id){
+    public Animal buscaAnimalId(Long id){
         return ar.buscaAnimalId(id);
     }
-    private List<Animal> buscarAnimais(){
+    public List<Animal> buscarAnimais(){
         return ar.findAll();
     }
 }

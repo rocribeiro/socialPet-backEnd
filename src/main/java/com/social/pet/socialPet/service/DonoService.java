@@ -12,16 +12,16 @@ public class DonoService {
     @Autowired
     private DonoRepository dr;
 
-    private void addDono(Dono dono){
+    public void addDono(Dono dono){
         dr.saveAndFlush(dono);
     }
-    private void deleteDono(Dono dono){
+    public void deleteDono(Dono dono){
         dr.delete(dono);
     }
-    private Dono buscarDono(Long id){
+    public Dono buscarDono(Long id){
         return dr.buscarDonoId(id);
     }
-    private List<Dono> buscarDonos(){
+    public List<Dono> buscarDonos(){
         return dr.findAll();
     }
 }
