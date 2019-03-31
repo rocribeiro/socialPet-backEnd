@@ -6,13 +6,15 @@ import java.util.List;
 public class Dono {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "dono_id")
     private Long id;
     private String nome;
-    private String endereco;
+   @OneToOne(mappedBy="dono",cascade= CascadeType.ALL, fetch=FetchType.EAGER)
+    private Endereco endereco;
     private String email;
     private String celular;
-    @OneToMany(mappedBy="dono", targetEntity = Animal.class, cascade= CascadeType.ALL, fetch=FetchType.EAGER)
-    private List<Animal> animais;
+    @OneToMany(mappedBy="dono",cascade= CascadeType.ALL, fetch=FetchType.EAGER)
+    private List<Pet> pets;
 
     public String getNome() {
         return nome;
@@ -22,12 +24,12 @@ public class Dono {
         this.nome = nome;
     }
 
-    public String getEndereco() {
+    public Endereco getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(String endeco) {
-        this.endereco = endeco;
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     public String getCelular() {
@@ -54,11 +56,11 @@ public class Dono {
         this.email = email;
     }
 
-    public List<Animal> getAnimais() {
-        return animais;
+    public List<Pet> getPets() {
+        return pets;
     }
 
-    public void setAnimais(List<Animal> animais) {
-        this.animais = animais;
+    public void setPets(List<Pet> pets) {
+        this.pets = pets;
     }
 }

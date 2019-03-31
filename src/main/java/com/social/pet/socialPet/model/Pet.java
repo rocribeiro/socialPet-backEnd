@@ -3,7 +3,7 @@ package com.social.pet.socialPet.model;
 import javax.persistence.*;
 
 @Entity
-public class Animal {
+public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
