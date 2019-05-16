@@ -6,7 +6,6 @@ import java.util.List;
 public class Dono {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "dono_id")
     private Long id;
     private String nome;
    @OneToOne(mappedBy="dono",cascade= CascadeType.ALL, fetch=FetchType.EAGER)

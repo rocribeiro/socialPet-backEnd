@@ -14,7 +14,7 @@ public class Endereco {
     private String numero;
     private String complemento;
     @ManyToOne
-    @JoinColumn(name="dono_id")
+    @JoinColumn(name="dono_id", referencedColumnName = "id")
     private Dono dono;
 
     public Long getId() {

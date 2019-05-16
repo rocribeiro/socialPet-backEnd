@@ -13,7 +13,7 @@ public class Pet {
     private Boolean perdido;
     private String descricao;
     @ManyToOne
-    @JoinColumn(name="dono_id")
+    @JoinColumn(name="dono_id", referencedColumnName = "id")
     private Dono dono;
 
     public Long getId() {
