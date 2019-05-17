@@ -9,11 +9,11 @@ package com.social.pet.socialPet.controller;
         import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/animal")
+@RequestMapping("/pet")
 public class PetController {
     @Autowired
     private PetService as;
-    @PostMapping("/addAnimal")
+    @PostMapping("/addPet")
     public void AdcionarAnimal(@RequestBody Pet pet){
         as.addPet(pet);
     }

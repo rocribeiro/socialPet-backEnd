@@ -12,7 +12,7 @@ public class Pet implements Serializable {
     private String nome;
     private String tipo;
     private String raca;
-    private Boolean perdido;
+    private String perdido;
     private String descricao;
     private String latitudePerdido;
     private String longitudePerdido;
@@ -71,11 +71,11 @@ public class Pet implements Serializable {
         this.descricao = descricao;
     }
 
-    public Boolean getPerdido() {
+    public String getPerdido() {
         return perdido;
     }
 
-    public void setPerdido(Boolean perdido) {
+    public void setPerdido(String perdido) {
         this.perdido = perdido;
     }
 
