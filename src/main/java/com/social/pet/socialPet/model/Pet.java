@@ -1,9 +1,11 @@
 package com.social.pet.socialPet.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Pet {
+public class Pet implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -12,9 +14,22 @@ public class Pet {
     private String raca;
     private Boolean perdido;
     private String descricao;
+    private String latitudePerdido;
+    private String longitudePerdido;
+    private String latitudeEncontrado;
+    private String longitudeEncontrado;
     @ManyToOne
-    @JoinColumn(name="dono_id", referencedColumnName = "id")
     private Dono dono;
+
+    private String foto;
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
 
     public Long getId() {
         return id;
@@ -70,5 +85,37 @@ public class Pet {
 
     public void setDono(Dono dono) {
         this.dono = dono;
+    }
+
+    public String getLatitudePerdido() {
+        return latitudePerdido;
+    }
+
+    public void setLatitudePerdido(String latitudePerdido) {
+        this.latitudePerdido = latitudePerdido;
+    }
+
+    public String getLongitudePerdido() {
+        return longitudePerdido;
+    }
+
+    public void setLongitudePerdido(String longitudePerdido) {
+        this.longitudePerdido = longitudePerdido;
+    }
+
+    public String getLongitudeEncontrado() {
+        return longitudeEncontrado;
+    }
+
+    public void setLongitudeEncontrado(String longitudeEncontrado) {
+        this.longitudeEncontrado = longitudeEncontrado;
+    }
+
+    public String getLatitudeEncontrado() {
+        return latitudeEncontrado;
+    }
+
+    public void setLatitudeEncontrado(String latitudeEncontrado) {
+        this.latitudeEncontrado = latitudeEncontrado;
     }
 }

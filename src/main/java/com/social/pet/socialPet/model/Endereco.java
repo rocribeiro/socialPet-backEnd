@@ -1,11 +1,11 @@
 package com.social.pet.socialPet.model;
 
-import sun.rmi.runtime.Log;
-
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Endereco {
+public class Endereco implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -13,8 +13,7 @@ public class Endereco {
     private String cep;
     private String numero;
     private String complemento;
-    @ManyToOne
-    @JoinColumn(name="dono_id", referencedColumnName = "id")
+    @OneToOne
     private Dono dono;
 
     public Long getId() {

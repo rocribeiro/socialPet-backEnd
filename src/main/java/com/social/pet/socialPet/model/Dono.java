@@ -1,18 +1,20 @@
 package com.social.pet.socialPet.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 @Entity
-public class Dono {
+public class Dono implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-   @OneToOne(mappedBy="dono",cascade= CascadeType.ALL, fetch=FetchType.EAGER)
+   @OneToOne(mappedBy="dono")
     private Endereco endereco;
     private String email;
     private String celular;
-    @OneToMany(mappedBy="dono",cascade= CascadeType.ALL, fetch=FetchType.EAGER)
+    @OneToMany(mappedBy="dono")
     private List<Pet> pets;
 
     public String getNome() {
