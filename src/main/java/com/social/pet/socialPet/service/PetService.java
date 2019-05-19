@@ -5,22 +5,24 @@ import com.social.pet.socialPet.repository.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
 public class PetService {
     @Autowired
-    private PetRepository ar;
+    private PetRepository petRepository;
+    @Transactional
     public void addPet(Pet pet){
-        ar.saveAndFlush(pet);
+        petRepository.saveAndFlush(pet);
     }
     public void deletePet(Pet pet){
-        ar.delete(pet);
-    }
-    public Pet buscaPetId(Long id){
-        return ar.buscaPetId(id);
+        petRepository.delete(pet);
     }
     public List<Pet> buscarPetss(){
-        return ar.findAll();
+        return petRepository.findAll();
+    }
+    public List<Pet> buscaPetsPerdidos(){
+        return petRepository.buscaPetsPerdidos();
     }
 }

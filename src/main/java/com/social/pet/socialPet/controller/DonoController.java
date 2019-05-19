@@ -18,7 +18,7 @@ public class DonoController {
     @PostMapping("/addDono")
     @ResponseStatus(HttpStatus.OK)
     public void AdcionarDono(@RequestBody Dono dono){
-        ds.processaEntidades(dono);
+        ds.addDono(dono);
     }
 
     @GetMapping("/buscarDono/{id}")

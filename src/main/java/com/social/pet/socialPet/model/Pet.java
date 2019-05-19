@@ -12,14 +12,12 @@ public class Pet implements Serializable {
     private String nome;
     private String tipo;
     private String raca;
-    private String perdido;
+    private Boolean perdido;
     private String descricao;
     private String latitudePerdido;
     private String longitudePerdido;
     private String latitudeEncontrado;
     private String longitudeEncontrado;
-    @ManyToOne
-    private Dono dono;
 
     private String foto;
 
@@ -71,20 +69,12 @@ public class Pet implements Serializable {
         this.descricao = descricao;
     }
 
-    public String getPerdido() {
+    public Boolean getPerdido() {
         return perdido;
     }
 
-    public void setPerdido(String perdido) {
+    public void setPerdido(Boolean perdido) {
         this.perdido = perdido;
-    }
-
-    public Dono getDono() {
-        return dono;
-    }
-
-    public void setDono(Dono dono) {
-        this.dono = dono;
     }
 
     public String getLatitudePerdido() {

@@ -10,11 +10,10 @@ public class Dono implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-   @OneToOne(mappedBy="dono")
-    private Endereco endereco;
     private String email;
     private String celular;
-    @OneToMany(mappedBy="dono")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "dono_id")
     private List<Pet> pets;
 
     public String getNome() {
@@ -23,14 +22,6 @@ public class Dono implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
     }
 
     public String getCelular() {
