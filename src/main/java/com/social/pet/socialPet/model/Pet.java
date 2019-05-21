@@ -14,10 +14,10 @@ public class Pet implements Serializable {
     private String raca;
     private Boolean perdido;
     private String descricao;
-    private String latitudePerdido;
-    private String longitudePerdido;
-    private String latitudeEncontrado;
-    private String longitudeEncontrado;
+    private Double latitudePerdido;
+    private Double longitudePerdido;
+    private Double latitudeEncontrado;
+    private Double longitudeEncontrado;
 
     private String foto;
 
@@ -77,35 +77,35 @@ public class Pet implements Serializable {
         this.perdido = perdido;
     }
 
-    public String getLatitudePerdido() {
+    public Double getLatitudePerdido() {
         return latitudePerdido;
     }
 
-    public void setLatitudePerdido(String latitudePerdido) {
+    public void setLatitudePerdido(Double latitudePerdido) {
         this.latitudePerdido = latitudePerdido;
     }
 
-    public String getLongitudePerdido() {
+    public Double getLongitudePerdido() {
         return longitudePerdido;
     }
 
-    public void setLongitudePerdido(String longitudePerdido) {
+    public void setLongitudePerdido(Double longitudePerdido) {
         this.longitudePerdido = longitudePerdido;
     }
 
-    public String getLongitudeEncontrado() {
+    public Double getLongitudeEncontrado() {
         return longitudeEncontrado;
     }
 
-    public void setLongitudeEncontrado(String longitudeEncontrado) {
+    public void setLongitudeEncontrado(Double longitudeEncontrado) {
         this.longitudeEncontrado = longitudeEncontrado;
     }
 
-    public String getLatitudeEncontrado() {
+    public Double getLatitudeEncontrado() {
         return latitudeEncontrado;
     }
 
-    public void setLatitudeEncontrado(String latitudeEncontrado) {
+    public void setLatitudeEncontrado(Double latitudeEncontrado) {
         this.latitudeEncontrado = latitudeEncontrado;
     }
 }
