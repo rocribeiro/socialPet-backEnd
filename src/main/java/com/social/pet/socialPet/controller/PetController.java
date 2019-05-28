@@ -17,6 +17,7 @@ public class PetController {
     @PostMapping("/addPet")
     @ResponseStatus(HttpStatus.OK)
     public void AdcionarAnimal(@RequestBody Pet pet){
+
         petService.addPet(pet);
     }
     @GetMapping("/")
