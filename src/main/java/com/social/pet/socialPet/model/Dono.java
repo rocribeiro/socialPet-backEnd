@@ -1,19 +1,19 @@
 package com.social.pet.socialPet.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 @Entity
-public class Dono {
+public class Dono implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "dono_id")
     private Long id;
     private String nome;
-   @OneToOne(mappedBy="dono",cascade= CascadeType.ALL, fetch=FetchType.EAGER)
-    private Endereco endereco;
     private String email;
     private String celular;
-    @OneToMany(mappedBy="dono",cascade= CascadeType.ALL, fetch=FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "dono_id")
     private List<Pet> pets;
 
     public String getNome() {
@@ -22,14 +22,6 @@ public class Dono {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
     }
 
     public String getCelular() {

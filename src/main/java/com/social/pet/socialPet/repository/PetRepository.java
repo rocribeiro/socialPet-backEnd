@@ -6,9 +6,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.Entity;
+import java.util.List;
+
 @Repository
 public interface PetRepository extends JpaRepository<Pet, Long> {
-    @Query(value="SELECT * FROM pet p WHERE p.id = :id",nativeQuery = true)
-    public Pet buscaPetId(@Param("id") Long id);
+    @Query(value="select * from pet p where p.perdido <>'true'",nativeQuery = true)
+    List<Pet> buscaPetsPerdidos();
+
 
 }
