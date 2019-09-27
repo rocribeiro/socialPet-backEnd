@@ -2,6 +2,7 @@ package com.social.pet.socialPet.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Pet implements Serializable {
@@ -18,14 +19,19 @@ public class Pet implements Serializable {
     private Double longitudePerdido;
     private Double latitudeEncontrado;
     private Double longitudeEncontrado;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "dono_id")
+    private Dono dono;
 
-    private String foto;
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    private byte[] foto;
 
-    public String getFoto() {
+    public byte[] getFoto() {
         return foto;
     }
 
-    public void setFoto(String foto) {
+    public void setFoto(byte[] foto) {
         this.foto = foto;
     }
 
@@ -107,5 +113,13 @@ public class Pet implements Serializable {
 
     public void setLatitudeEncontrado(Double latitudeEncontrado) {
         this.latitudeEncontrado = latitudeEncontrado;
+    }
+
+    public Dono getDono() {
+        return dono;
+    }
+
+    public void setDono(Dono dono) {
+        this.dono = dono;
     }
 }

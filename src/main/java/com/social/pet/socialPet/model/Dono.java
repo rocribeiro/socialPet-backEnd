@@ -12,9 +12,7 @@ public class Dono implements Serializable {
     private String nome;
     private String email;
     private String celular;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "dono_id")
-    private List<Pet> pets;
+
 
     public String getNome() {
         return nome;
@@ -48,11 +46,4 @@ public class Dono implements Serializable {
         this.email = email;
     }
 
-    public List<Pet> getPets() {
-        return pets;
-    }
-
-    public void setPets(List<Pet> pets) {
-        this.pets = pets;
-    }
 }
