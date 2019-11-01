@@ -1,5 +1,6 @@
 package com.social.pet.socialPet.controller;
 
+        import com.social.pet.socialPet.http.ChamadaHttp;
         import com.social.pet.socialPet.model.Pet;
         import com.social.pet.socialPet.service.PetService;
         import org.apache.coyote.Response;
@@ -8,6 +9,8 @@ package com.social.pet.socialPet.controller;
         import org.springframework.stereotype.Controller;
         import org.springframework.web.bind.annotation.*;
 
+        import java.io.IOException;
+        import java.net.URISyntaxException;
         import java.util.List;
 
 @Controller
@@ -24,5 +27,11 @@ public class PetController {
     @GetMapping("/")
     public @ResponseBody List<Pet> buscaPetsPerdidos(){
         return petService.buscaPetsPerdidos();
+    }
+
+    @PostMapping("/detect")
+    public boolean reconhecerPer(@RequestBody String body) throws IOException, URISyntaxException {
+        ChamadaHttp http = new ChamadaHttp();
+        return http.chamada(body);
     }
 }
