@@ -30,8 +30,14 @@ public class PetController {
     }
 
     @PostMapping("/detect")
-    public boolean reconhecerPer(@RequestBody String body) throws IOException, URISyntaxException {
+    public @ResponseBody  boolean reconhecerPer(@RequestBody Pet pet) throws IOException, URISyntaxException {
         ChamadaHttp http = new ChamadaHttp();
-        return http.chamada(body);
+        if(http.chamada(pet.getBase64()) == true){
+            AdcionarAnimal(pet);
+            return true;
+        }else{
+            return false;
+        }
+
     }
 }

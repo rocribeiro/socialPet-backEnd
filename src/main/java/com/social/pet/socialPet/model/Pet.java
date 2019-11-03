@@ -22,7 +22,8 @@ public class Pet implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "dono_id")
     private Dono dono;
-
+    @Transient
+    private String base64;
     @Lob
     @Basic(fetch = FetchType.LAZY)
     private byte[] foto;
@@ -33,6 +34,14 @@ public class Pet implements Serializable {
 
     public void setFoto(byte[] foto) {
         this.foto = foto;
+    }
+
+    public String getBase64() {
+        return base64;
+    }
+
+    public void setBase64(String base64) {
+        this.base64 = base64;
     }
 
     public Long getId() {

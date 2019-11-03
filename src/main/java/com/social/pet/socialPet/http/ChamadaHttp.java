@@ -15,10 +15,10 @@ package com.social.pet.socialPet.http;
 
 
 public class ChamadaHttp {
-    public Boolean chamada(String body) throws URISyntaxException, IOException {
+    public Boolean chamada(String base64) throws URISyntaxException, IOException {
         HttpClient httpclient = new DefaultHttpClient();
         URIBuilder builder = new URIBuilder("https://vision.googleapis.com/v1/images:annotate?key=AIzaSyB6cBEzNkKrb5rArVvtMkaCp4FXRDF9eDg");
-
+        String body ="{\"requests\":[{\"image\":{\"content\":\""+base64+"\"},\"features\": [{\"type\":\"LABEL_DETECTION\"}]}]}";
         URI uri = builder.build();
         HttpPost request = new HttpPost(uri);
 
@@ -34,15 +34,16 @@ public class ChamadaHttp {
 
 
         String jsonString = EntityUtils.toString(entity);
-        JSONArray jsonArray = new JSONArray(jsonString);
+        JSONArray jsonArray = new JSONArray("["+jsonString+"]");
 
         System.out.println(jsonArray);
 
-        JSONArray labelAnnotations = jsonArray.getJSONObject(0).getJSONArray("labelAnnotations");
+        JSONArray responses = jsonArray.getJSONObject(0).getJSONArray("responses");
+        JSONArray labelAnnotations = responses.getJSONObject(0).getJSONArray("labelAnnotations");
         boolean status = false;
         for(int i = 0; i< labelAnnotations.length(); i++) {
-            String nome = labelAnnotations.getJSONObject(i).getString("name");
-            if(nome.equals("Dog")||nome.equals("dog")){
+            String nome = labelAnnotations.getJSONObject(i).getString("description");
+            if(nome.equals("Dog")|| nome.equals("Cat") || nome.equals("Turtle") || nome.equals("Bird")){
                 status = true;
             }
         }
