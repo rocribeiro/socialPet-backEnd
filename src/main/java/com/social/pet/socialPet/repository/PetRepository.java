@@ -14,7 +14,7 @@ public interface PetRepository extends JpaRepository<Pet, Long> {
     @Query(value="select * from pet p where p.perdido <>'true'",nativeQuery = true)
     List<Pet> buscaPetsPerdidos();
 
-    @Query(value="select * from pet p where p.perdido = :email",nativeQuery = true)
+    @Query(value="select * from pet p where p.dono_email = :email",nativeQuery = true)
     List<Pet> meusPets(@Param("email")String email);
 
 
