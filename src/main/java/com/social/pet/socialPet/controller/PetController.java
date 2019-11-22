@@ -34,6 +34,12 @@ public class PetController {
     public @ResponseBody List<Pet> meusPets(@PathVariable("email") String email){
         return petService.meusPets(email);
     }
+
+    @GetMapping("/meusPetsEncontrados/{email}")
+    public @ResponseBody List<Pet> meusPetsEncontrados(@PathVariable("email") String email){
+        return petService.meusPetsEncontrados(email);
+    }
+
     @GetMapping("/petEncontrado/{id}")
     public void petEncontrado(@PathVariable("id") String id){
         Pet pet = petService.petEncontrado(Long.parseLong(id));

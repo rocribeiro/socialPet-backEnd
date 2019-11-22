@@ -25,4 +25,8 @@ public class PetService {
     public Pet petEncontrado(Long id){
         return petRepository.getOne(id);
     }
+    public List<Pet> meusPetsEncontrados(String email){
+        return petRepository.meusPetsEncontrados(email);
+    }
+
 }
