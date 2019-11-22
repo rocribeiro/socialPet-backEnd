@@ -16,13 +16,13 @@ public class PetService {
     public void addPet(Pet pet){
         petRepository.saveAndFlush(pet);
     }
-    public void deletePet(Pet pet){
-        petRepository.delete(pet);
-    }
-    public List<Pet> buscarPetss(){
-        return petRepository.findAll();
-    }
     public List<Pet> buscaPetsPerdidos(){
         return petRepository.buscaPetsPerdidos();
+    }
+    public List<Pet> meusPets(String email){
+        return petRepository.meusPets(email);
+    }
+    public Pet petEncontrado(Long id){
+        return petRepository.getOne(id);
     }
 }

@@ -13,15 +13,16 @@ public class Pet implements Serializable {
     private String nome;
     private String tipo;
     private String raca;
+    private String colorMarker;
     private Boolean perdido;
+    private Boolean achado;
     private String descricao;
     private Double latitudePerdido;
     private Double longitudePerdido;
     private Double latitudeEncontrado;
     private Double longitudeEncontrado;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "dono_id")
-    private Dono dono;
+    private String donoEmail;
+    private String donoNome;
     @Transient
     private String base64;
     @Lob
@@ -42,6 +43,22 @@ public class Pet implements Serializable {
 
     public void setBase64(String base64) {
         this.base64 = base64;
+    }
+
+    public String getColorMarker() {
+        return colorMarker;
+    }
+
+    public void setColorMarker(String colorMarker) {
+        this.colorMarker = colorMarker;
+    }
+
+    public Boolean getAchado() {
+        return achado;
+    }
+
+    public void setAchado(Boolean achado) {
+        this.achado = achado;
     }
 
     public Long getId() {
@@ -124,11 +141,19 @@ public class Pet implements Serializable {
         this.latitudeEncontrado = latitudeEncontrado;
     }
 
-    public Dono getDono() {
-        return dono;
+    public String getDonoEmail() {
+        return donoEmail;
     }
 
-    public void setDono(Dono dono) {
-        this.dono = dono;
+    public void setDonoEmail(String donoEmail) {
+        this.donoEmail = donoEmail;
+    }
+
+    public String getDonoNome() {
+        return donoNome;
+    }
+
+    public void setDonoNome(String donoNome) {
+        this.donoNome = donoNome;
     }
 }
