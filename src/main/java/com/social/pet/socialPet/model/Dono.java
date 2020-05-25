@@ -7,11 +7,10 @@ import java.util.List;
 public class Dono implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String nome;
     private String email;
+    private String nome;
     private String celular;
+
 
 
     public String getNome() {
@@ -28,14 +27,6 @@ public class Dono implements Serializable {
 
     public void setCelular(String celular) {
         this.celular = celular;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getEmail() {
